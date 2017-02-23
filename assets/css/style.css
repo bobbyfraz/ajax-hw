@@ -1,0 +1,42 @@
+body{
+	background-image: url(../images/small_steps.png);
+}
+
+#gif-view{
+	font-weight: bold;
+}
+
+#rating{
+	font-weight: bold;
+}
+
+#add{
+	font-weight: bold;
+}
+
+.image{
+	width: 300px;
+	height: 250px;
+}
+
+.category{
+	margin: 5px;
+}
+
+#gif-form{
+	margin-top: 10px;
+}
+
+#add-gif{
+	margin-top: 10px;
+	position: relative;
+	right: 15px;
+}
+
+#gif-input{
+	margin-top: 10px;
+}
+
+#gifs{
+	margin: 10px 0px 10px 0px;
+}
