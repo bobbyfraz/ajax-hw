@@ -3,7 +3,7 @@
 
 	function displayGifInfo() {
 		console.log(this);
-		var name = $(this).attr("data-image");
+		var name = $(this).attr("data-images");
 		var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + name + "&api_key=dc6zaTOxFJmzC&limit=12";
 		$("#hpc-info").html(queryURL);
 
@@ -18,6 +18,7 @@
 			var rating = response.data[i].rating;
 			var gifRating = $("<span>").html("Rating: " + rating);
 			newGifDiv.append(gifRating);
+			gifRating.addClass("ratings");
 
 			var gifPicStill = response.data[i].images.fixed_height_still.url;
 			var gifPicPresent = $("<img>").attr("src", gifPicStill);
@@ -25,7 +26,7 @@
 			gifPicPresent.attr("data-animated", gifAnimated);
 			gifPicPresent.attr("data-static", gifPicStill);
 			gifPicPresent.attr("data", "still");
-			gifPicPresent.addClass("image");
+			gifPicPresent.addClass("images");
 			newGifDiv.append(gifPicPresent);
 
 			$("#gif").append(newGifDiv);
@@ -33,7 +34,7 @@
 	});
 	};
 
-	$(document).on("click", ".image", function(){
+	$(document).on("click", ".images", function(){
 		console.log(this);
 		if($(this).attr("data") === "still"){
 			$(this).attr("src", $(this).attr("data-animated"));
@@ -51,7 +52,7 @@
 			var a = $("<button>");
 			a.addClass("category");
 			a.addClass("btn btn-success")
-			a.attr("data-image", categories[i]);
+			a.attr("data-images", categories[i]);
 			a.text(categories[i]);
 			$("#gif-view").append(a);
 		}
