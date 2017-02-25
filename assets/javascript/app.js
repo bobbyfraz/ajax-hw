@@ -12,14 +12,11 @@
 			method: "GET"
 	}).done(function(response){
 			//$("hpc-info").html(response.Title + "<img src='" + response.Poster + "'>");
-		var newGifDiv = $("<div class='12gifs'>");
-		$("#gif").empty();
-		for (var i = 0; i < 11; i++) {
-			var rating = response.data[i].rating;
-			var gifRating = $("<span>").html("Rating: " + rating);
-			newGifDiv.append(gifRating);
-			gifRating.addClass("ratings");
 
+		$("#gif").empty();
+		for (var i = 0; i < 12; i++) {
+			var newGifDiv = $("<div class='gifs'>")
+			var rating = response.data[i].rating;
 			var gifPicStill = response.data[i].images.fixed_height_still.url;
 			var gifPicPresent = $("<img>").attr("src", gifPicStill);
 			var gifAnimated = response.data[i].images.fixed_height.url;
@@ -29,6 +26,9 @@
 			gifPicPresent.addClass("images");
 			newGifDiv.append(gifPicPresent);
 
+			var gifRating = $("<span>").html("Rating: " + rating);
+			gifRating.addClass("ratings");
+			newGifDiv.append(gifRating);
 			$("#gif").append(newGifDiv);
 		}
 	});
